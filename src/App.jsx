@@ -1,4 +1,4 @@
-import "./components/components-styles.css";
+import "./components/components-style.css";
 import { Routes, Route, Navigate } from "react-router-dom";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
