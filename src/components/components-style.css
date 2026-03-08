@@ -4,7 +4,7 @@ body{
 }
 
 .button-primary {
-    background: #001f3f;
+    background: #3e0e8d;
     border-radius: 8px;
     color: white;
     border: none;
@@ -15,7 +15,7 @@ body{
 }
 
 .button-primary:hover {
-    background: #003366;
+    background: #3e0e8d;
     transform: translateY(-1px);
     box-shadow: 0 3px 8px rgba(0,0,0,0.15);
 }
@@ -33,8 +33,8 @@ body{
 
 .button-secondary:hover {
     background: #e9ecef;
-    border-color: #001f3f;
-    color: #001f3f;
+    border-color: #3e0e8d;
+    color: #3e0e8d;
 }
 
 
@@ -60,13 +60,13 @@ body{
 }
 
 .input:focus {
-    border-color: #001f3f;
+    border-color: #3e0e8d;
     box-shadow: 0 0 0 2px rgba(0, 31, 63, 0.15);
 }
 
 
 .container h1 {
-    color: #001f3f;
+    color: #3e0e8d;
     font-size: 2rem;
     margin-bottom: 20px;
     letter-spacing: 0.5px;
@@ -90,7 +90,7 @@ table {
 }
 
 thead {
-    background-color: #001f3f;
+    background-color: #3e0e8d;
     color: white;
 }
 
