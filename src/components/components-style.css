@@ -1,0 +1,12 @@
+.button-primary{
+    background-color: darkgrey;
+    border-radius: 10px;
+    color: black;
+    padding: 2px 10px;
+}
+.button-secondary{
+    background-color: rgb(103, 164, 167);
+    border-radius: 10px;
+    color: black;
+    padding: 2px 10px;
+}
