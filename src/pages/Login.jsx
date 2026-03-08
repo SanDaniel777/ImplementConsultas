@@ -1,56 +1,70 @@
 import { useState } from "react";
-import Button from "../components/Button";  
 import { useNavigate } from "react-router-dom";
+import Button from "../components/Button";
 import { useAuth } from "../security/authContext";
+import Swal from "sweetalert2";
+import Input from "../components/Input";
 
-
-
-
-function Login(){
+function Login() {
     const navigate = useNavigate();
-    const {login}= useAuth();
-    const [username, setUsername]= useState('');
-    const [password, setPassword]= useState('');
+    const { login } = useAuth();
 
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
 
-    const handleLogin= () => {
-        if(username=== ''){
-            alert('Please enter de username');
+    const handleLogin = async () => {
+
+        if (!username || !password) {
+            Swal.fire(
+                "Error",
+                "Todos los campos son obligatorios",
+                "error"
+            )
             return;
         }
-        if(password=== ''){
-            alert('Please enter de password');
-            return;
+
+
+        const success = await login(username, password)
+        if (success) {
+
+            Swal.fire(
+                "Success",
+                `Iniciado correctamente`,
+                "success"
+            )
+            navigate("/dashboard")
+        } else {
+            Swal.fire(
+                "Error",
+                "Credenciales incorrectas",
+                "error"
+            )
         }
 
-        alert(`Username: ${username} and Password: ${password}`)
-        if(login(username,password)){
-            navigate('/dashboard')
-        }else{
-            alert('Invalid credentials')
-        }
-        navigate('/dashboard')
     }
 
-    return(
-        <div>
+
+    return (
+
+
+
+        <div className="login">
             <h1>Login</h1>
             <div>
-                <input type="text" placeholder="UserName"
-                onChange={(event) => setUsername(event.target.value)}
+                
+                <Input type="text" placeholder="userName"
+                    onChange={(event) => setUsername(event.target.value)}
                 />
             </div>
             <div>
-                <input type="text" placeholder="Password" 
-                onChange={(event) => setPassword(event.target.value)}
+                <Input type="password" placeholder="password"
+                    onChange={(event) => setPassword(event.target.value)}
                 />
             </div>
-            <br />
-            <Button text="Iniciar Sesion"
-            action={handleLogin}
-            />
+            <Button type="primary" text="Iniciar Sesión "
+                action={handleLogin} />
         </div>
-
     )
+
 }
 export default Login;
